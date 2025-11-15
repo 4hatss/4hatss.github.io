@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* (معدّل) مسافة علوية للمحتوى */
         #resources-page-content {
             padding-top: 150px;
             padding-bottom: 80px;
@@ -23,7 +22,6 @@
             overflow: hidden;
         }
         
-        /* (معدّل) حاوية بطاقات المصادر */
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -34,29 +32,26 @@
             z-index: 2; 
             padding: 0 40px;
         }
-        /* (جديد) تنسيق رابط العودة */
         .back-link-container {
             text-align: center;
-            margin-bottom: 40px; /* مسافة قبل البطاقات */
-            position: relative; /* لضمان ظهوره فوق التعتيم */
+            margin-bottom: 40px;
+            position: relative; 
             z-index: 2;
         }
         .back-link {
             text-decoration: none;
-            color: #aaa; /* لون رمادي فاتح */
+            color: #aaa; 
             font-size: 1rem;
             font-weight: 700;
             transition: all 0.3s ease;
         }
         .back-link i {
-            margin-right: 8px; /* مسافة بجانب الأيقونة */
+            margin-right: 8px; 
         }
         .back-link:hover {
-            color: #FF4500; /* لون برتقالي عند الهوفر */
+            color: #FF4500;
             text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
         }
-
-        /* (معدّل) تنسيق بطاقة المصدر (البطاقة كلها رابط) */
         .resource-card {
             text-decoration: none; 
             color: #ffffff;
@@ -74,7 +69,6 @@
             border-color: #FF4500;
         }
         
-        /* حاوية الصورة */
         .resource-card .card-image-container {
             width: 100%;
             height: 200px; 
@@ -92,7 +86,6 @@
             transform: scale(1.15);
         }
 
-        /* محتوى البطاقة */
         .resource-card .card-content {
             padding: 25px;
             min-height: 160px; 
@@ -111,9 +104,7 @@
             flex-grow: 1; 
             margin-bottom: 15px;
         }
-        
-        /* (معدّل) تنسيق رابط "اذهب للمصدر" */
-        .resource-card .card-link-text {
+                .resource-card .card-link-text {
             font-size: 0.9rem;
             font-weight: 700;
             color: #FF4500;
