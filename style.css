@@ -1,0 +1,1257 @@
+/* ===== General Settings ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto Mono', monospace; /* Tech-style font */
+    background-color: #0c0c0c; /* Dark charcoal - Phoenix theme */
+    color: #ffffff;
+    scroll-behavior: smooth; /* Smooth scroll for when clicking the logo */
+}
+
+/* ===== Header (Navbar) ===== */
+#main-header {
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px; /* Padding top/bottom and left/right */
+    background-color: rgba(12, 12, 12, 0.5); /* Semi-transparent dark bg */
+    backdrop-filter: blur(5px); /* Adds a slight blur effect (modern look) */
+    z-index: 1000; /* Ensures it's on top of other content */
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2); /* Faint phoenix-themed border */
+    transition: background-color 0.3s ease;
+}
+
+/* Container to manage content width */
+#main-header .container {
+    width: 100%;
+    max-width: 1400px; /* Adjust this max-width as needed */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Logo on left, nav on right */
+    align-items: center;
+}
+/* (جديد) حاوية بعرض كامل */
+.container-full {
+    width: 100%;
+    position: relative; /* (جديد) ضروري عشان يجي فوق الفيديو */
+    z-index: 2; /* (جديد) */
+}
+
+
+.logo-link .logo {
+    height: 50px; /* Set a fixed height for your logo */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* تنسيق الروابط بالهيدر */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* المسافة بين الروابط */
+}
+
+.main-nav li {
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 5px; /* مسافة للخط اللي تحت */
+    transition: color 0.3s ease;
+}
+
+/* خط الفينيكس تحت الرابط (مخفي) */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FF4500;
+    transform: scaleX(0); /* ببدأ مخفي (عرضه 0) */
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+/* عند الهوفر */
+.main-nav a:hover {
+    color: #FF4500; /* تغيير لون الخط */
+}
+.main-nav a:hover::after {
+    transform: scaleX(1); /* إظهار الخط */
+    transform-origin: left;
+}
+
+/* =================================================
+   4. تنسيق الرابط النشط (Scrollspy)
+================================================= */
+.main-nav a.active {
+    color: #FF4500; /* اللون البرتقالي */
+}
+.main-nav a.active::after {
+    transform: scaleX(1); /* إظهار الخط السفلي */
+    transform-origin: left;
+}
+
+/* ===== Hero Section ===== */
+#hero {
+    height: 100vh;
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: #000; 
+}
+
+/* ===== Background Video ===== */
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* ===== Overlay ===== */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1; 
+}
+
+/* ===== Hero Content (Text) ===== */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 5rem; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FF4500; 
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.7); 
+    text-transform: uppercase;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 600px; 
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #f0f0f0; 
+}
+
+/* =================================================
+   (جديد) 5. تأثير الآلة الكاتبة (Typewriter)
+================================================= */
+.hero-title.typewriter {
+    position: relative;
+    /* ضمان أن النص يبدأ من اليسار (لأنها كلمة إنجليزية) */
+    direction: ltr; 
+    display: inline-block; /* ليناسب حجم النص فقط */
+    min-height: 1.2em; /* منع "القفز" عند بدء الكتابة */
+}
+
+/* (جديد) إضافة المؤشر (الكاريت) الوامض */
+.hero-title.typewriter::after {
+    content: '_'; /* استخدام _ كمؤشر */
+    font-weight: 700;
+    color: #FF4500; /* لون برتقالي */
+    animation: blink 1s infinite;
+    position: relative; /* لضمان بقائه بجانب النص */
+    margin-left: 5px;
+}
+
+/* (جديد) أنيميشن الوميض */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+/* ===== شريط الصور المتحرك (Image Scroller) ===== */
+#image-scroller {
+    background-color: #0c0c0c; 
+    padding: 40px 0; 
+    border-top: 1px solid rgba(255, 69, 0, 0.2); 
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+    overflow: hidden; 
+    position: relative; /* ضروري للفيديو بالخلفية */
+}
+
+/* فيديو خلفية شريط الصور */
+#image-scroller-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* الطبقة 0: الخلفية */
+}
+
+/* حاوية الصور */
+.scroller-container {
+    display: flex;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    position: relative; /* ضروري عشان يجي فوق التعتيم */
+    z-index: 2; /* الطبقة 2: فوق التعتيم */
+    cursor: grab; /* إضافة الكيرسر هنا */
+}
+.scroller-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.scroll-item {
+    flex: 0 0 auto; 
+    width: 300px; 
+    height: 200px; 
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden; 
+    background-color: rgba(34, 34, 34, 0.8); /* خليناه شبه شفاف */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 69, 0, 0.2); /* إطار خفيف */
+}
+
+.scroll-item:first-child {
+    margin-left: 40px; 
+}
+.scroll-item:last-child {
+    margin-right: 40px; 
+}
+
+.scroll-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); 
+    border-color: #FF4500;
+}
+
+.scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    pointer-events: none; 
+}
+
+
+/* ===== قسم شريط المهارات (Parallax) ===== */
+#skills-marquee {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px 0;
+    background-color: #0c0c0c;
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.marquee-row {
+    display: flex;
+    white-space: nowrap;
+}
+
+.marquee-row.scroll-right .marquee-content {
+    /* بنخلي السطر الثاني يبدأ من النص عشان الحركة المعاكسة */
+    transform: translateX(-50%);
+}
+
+.marquee-content {
+    display: flex;
+    font-size: 3rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    will-change: transform; /* بنخبر المتصفح إنه هاد العنصر رح يتحرك */
+}
+
+.marquee-content span {
+    padding: 0 20px;
+}
+
+/* ثيم الفينيكس */
+.marquee-row:first-child .marquee-content span {
+    color: #FF4500; 
+    -webkit-text-stroke: 1px #FF4500;
+}
+.marquee-row:last-child .marquee-content span {
+    color: #aaa; 
+    -webkit-text-stroke: 1px #aaa;
+}
+
+/* ===== قسم أعضاء الفريق ===== */
+#team {
+    padding: 80px 40px;
+    background-color: #0c0c0c; /* لون احتياطي */
+    position: relative; /* ضروري جداً للفيديو */
+    overflow: hidden; /* لإخفاء الفيديو الزايد */
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2); /* (*** التعديل الوحيد ***) */
+}
+
+/* فيديو خلفية قسم الفريق */
+#team-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* الطبقة 0: الخلفية */
+}
+
+/* طبقة تعتيم عامة (تُستخدم في أكثر من قسم) */
+.section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* أغمق شوي من الهيرو */
+    z-index: 1; /* الطبقة 1: فوق الفيديو */
+}
+
+/* عنوان القسم */
+.section-title {
+    font-size: 3rem; 
+    font-weight: 700;
+    color: #FF4500; 
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px; 
+    position: relative; /* عشان يجي فوق التعتيم */
+    z-index: 2; /* الطبقة 2: فوق التعتيم */
+}
+
+/* حاوية البطاقات (معدّل) */
+#team .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; 
+    max-width: 1300px; 
+    margin: 0 auto;
+    position: relative; /* ضروري عشان البطاقات تيجي فوق التعتيم */
+    z-index: 2; /* الطبقة 2: فوق التعتيم */
+}
+
+.team-card {
+    background-color: #1a1a1a; 
+    border: 1px solid rgba(255, 69, 0, 0.3); 
+    border-radius: 8px; 
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease-out;
+}
+
+.team-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 69, 0, 0.5); 
+    border-color: #FF4500;
+}
+
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #FF4500; 
+    margin-bottom: 20px;
+}
+
+.team-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FF4500; 
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.social-links a {
+    font-size: 1.8rem; 
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #FF4500; 
+    transform: scale(1.2); 
+}
+
+/* ===== (معدّل) قسم المسابقات (تصميم بطاقات تفاعلي) ===== */
+#competitions {
+    padding: 80px 40px;
+    background-color: #0c0c0c;
+    position: relative;
+    overflow: hidden; /* مهم عشان الأنيميشن */
+}
+
+/* (جديد) فيديو خلفية قسم المسابقات */
+#competitions-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* الطبقة 0: الخلفية */
+}
+
+
+/* (معدّل) حاوية البطاقات القابلة للسحب */
+.competitions-scroller {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    padding: 20px 0; /* مسافة للظل */
+    margin: 0 -40px; /* عشان السكرول يوصل للطرف */
+    position: relative;
+    z-index: 2;
+    cursor: grab;
+}
+.competitions-scroller::-webkit-scrollbar {
+    display: none; 
+}
+/* مسافات للعناصر الأولى والأخيرة */
+.competitions-scroller > :first-child { margin-left: 40px; }
+.competitions-scroller > :last-child { margin-right: 40px; }
+
+
+/* (معدّل) بطاقة المسابقة */
+.competition-card {
+    flex: 0 0 320px; /* عرض ثابت للبطاقة */
+    margin-right: 30px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden; /* ضروري جداً عشان الصورة ما تطلع برا */
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    position: relative; /* عشان نثبت العنوان فوق */
+}
+
+/* حاوية الصورة (عشان نعمل الزووم عليها) */
+.card-image-container {
+    width: 100%;
+    height: 250px; /* طول موحد للصورة */
+    overflow: hidden; /* ضروري جداً عشان الزووم */
+    position: relative; /* عشان التعتيم */
+}
+/* (جديد) طبقة تعتيم خفيفة للصورة */
+.card-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+}
+
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out; /* حركة الزووم */
+}
+
+/* محتوى البطاقة (العنوان والتفاصيل) */
+.card-content {
+    padding: 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    position: relative; /* عشان يضل فوق الصورة */
+    z-index: 2;
+    min-height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.4s ease-out;
+}
+
+.competition-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff; /* لون أبيض عادي */
+    text-transform: uppercase;
+    transition: color 0.3s ease-out;
+    margin-bottom: 10px; /* مسافة بين العنوان والتفاصيل */
+}
+
+/* (معدّل) التفاصيل (الموجودة بالبطاقة) */
+.card-details-preview { /* غيرنا اسم الكلاس */
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.5;
+    opacity: 1; /* (تعديل) خليناها ظاهرة دايماً */
+    transform: translateY(0);
+    height: auto; 
+}
+
+
+/* ===== التفاعل الديناميكي (Hover) ===== */
+
+.competition-card:hover {
+    /* 1. ميلان خفيف للبطاقة */
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(255, 69, 0, 0.5); 
+    border-color: #FF4500;
+}
+
+.competition-card:hover .card-image {
+    /* 2. زووم للصورة اللي جوا */
+    transform: scale(1.15);
+}
+
+.competition-card:hover h3 {
+    /* 3. تغيير لون العنوان */
+    color: #FF4500;
+}
+/* ===== (جديد) قسم الـ Categories (معاينة) ===== */
+#categories-preview {
+    padding: 80px 40px;
+    background-color: #0c0c0c;
+    position: relative;
+    overflow: hidden;
+    text-align: center; 
+    border-top: 1px solid rgba(255, 69, 0, 0.2); /* فاصل علوي */
+    /* لا يوجد فاصل سفلي، سيوضع على القسم التالي */
+}
+
+.categories-preview-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px; 
+}
+/* ===== (جديد) قسم الـ Write-ups ===== */
+#write-ups {
+    padding: 80px 40px;
+    background-color: #0c0c0c; /* لون الخلفية الأساسي */
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* لتوسيط الزر */
+    border-top: 1px solid rgba(255, 69, 0, 0.2); /* فاصل علوي */
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2); /* (جديد) فاصل سفلي */
+}
+
+/* (جديد) الحاوية للزر (للتأكد من ظهوره فوق التعتيم) */
+.writeups-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px; /* مسافة صغيرة تحت العنوان */
+}
+
+/* (جديد) تنسيق الزر الرئيسي (Call to Action) */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FF4500; /* لون الفينيكس */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px; /* حواف دائرية */
+    border: 2px solid #FF4500;
+    transition: all 0.3s ease-out;
+}
+
+.cta-button:hover {
+    background-color: transparent; /* شفاف عند الهوفر */
+    color: #FF4500;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+}
+
+
+/* ===== (معدّل) قسم "تجدوننا هنا" ===== */
+/* (ملاحظة: تم نقل كود 'border-top' إلى القسم الجديد 'write-ups') */
+#find-us {
+    padding: 80px 40px;
+    position: relative;
+    z-index: 5;
+    overflow: hidden; 
+    background-color: #0c0c0c;
+}
+
+/* (جديد) فيديو خلفية قسم "Find Us" */
+#find-us-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* الطبقة 0: الخلفية */
+}
+
+.find-us-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1000px; 
+    margin: 0 auto;
+    position: relative; /* (جديد) */
+    z-index: 2; /* (جديد) فوق الأوفرلاي */
+}
+
+.find-us-card {
+    background-color: #1a1a1a;
+    border: 2px solid rgba(255, 69, 0, 0.3);
+    border-radius: 50%; /* دائري */
+    width: 250px;
+    height: 250px;
+    margin: 0 auto; /* توسيط الدوائر إذا الشاشة ضاقت */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+    position: relative; /* ضروري للـ overflow */
+    overflow: hidden; /* لإخفاء العناصر وقت التبديل */
+}
+
+.find-us-card i {
+    font-size: 4rem; /* أيقونة كبيرة */
+    color: #FF4500;
+    transition: all 0.3s ease;
+}
+
+.find-us-card h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+/* التفاصيل (الرابط) - مخفي */
+.find-us-card a {
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #FF4500;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    
+    position: absolute; /* (جديد) تثبيت بالمكان */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease;
+    pointer-events: none; /* (جديد) */
+}
+
+/* التفاعل عند الهوفر */
+.find-us-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.5);
+    border-color: #FF4500;
+}
+
+/* إخفاء الأيقونة والعنوان */
+.find-us-card:hover i,
+.find-us-card:hover h3 {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* إظهار الرابط */
+.find-us-card:hover a {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto; /* (جديد) */
+}
+
+/* (جديد) تأخير الأنيميشن (staggered) */
+.find-us-card.hidden-on-scroll:nth-child(1) { transition-delay: 0s; }
+.find-us-card.hidden-on-scroll:nth-child(2) { transition-delay: 200ms; }
+.find-us-card.hidden-on-scroll:nth-child(3) { transition-delay: 400ms; }
+
+
+/* ===== الفوتر ===== */
+#main-footer {
+    padding: 60px 40px;
+    background-color: #000000; /* (تعديل) أسود سادة */
+    text-align: center;
+    border-top: 1px solid rgba(255, 69, 0, 0.2);
+    position: relative; /* (جديد) عشان يجي فوق أي فيديو */
+    z-index: 5;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.footer-logo:hover img {
+    opacity: 1;
+}
+
+/* (تم حذف .footer-socials) */
+
+.footer-contact {
+    margin-bottom: 30px;
+}
+
+.footer-contact p {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+.footer-contact a {
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-contact a:hover {
+    color: #FF4500;
+    text-decoration: underline;
+}
+
+.footer-copyright p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+
+/* ===== كود القائمة المنبثقة (Modal) ===== */
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* تعتيم قوي */
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 800px; /* تحديد عرض القائمة */
+    max-height: 80vh; /* تحديد أقصى ارتفاع */
+    overflow-y: auto; /* سكرول داخلي لو التفاصيل طويلة */
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #FF4500;
+    box-shadow: 0 0 50px rgba(255, 69, 0, 0.5);
+    z-index: 2001;
+    
+    /* أنيميشن "التكبير" */
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease-out;
+}
+
+/* كلاس التشغيل (visible) */
+#modal-overlay.visible,
+#modal-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+#modal-overlay.visible {
+    transform: none; /* الأوفرلاي ما بده scale */
+}
+
+/* زر الإغلاق */
+#modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+#modal-close-btn:hover {
+    color: #FF4500;
+    transform: rotate(90deg);
+}
+
+/* محتوى المودال */
+#modal-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* حواف علوية فقط */
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+#modal-title {
+    font-size: 2.5rem;
+    color: #FF4500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#modal-details {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    line-height: 1.7;
+    white-space: pre-wrap; /* بحافظ على الأسطر الجديدة لو موجودة */
+}
+
+
+/* ===== كلاسات الأنيميشن (ديناميكي الظهور) ===== */
+.hidden-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* (جديد) إضافة تأخير للأنيميشن */
+.hidden-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0); 
+    transition-delay: var(--delay, 0s); /* (جديد) */
+}
+
+
+/* ===== Responsive (Mobile) Adjustments ===== */
+@media (max-width: 768px) {
+    #main-header {
+        padding: 15px 20px;
+    }
+    
+    .logo-link .logo {
+        height: 40px; 
+    }
+    
+    /* (معدّل) إخفاء القائمة الرئيسية على الموبايل */
+    .main-nav {
+        display: none;
+    }
+    
+    /* (جديد) إظهار زر الموبايل */
+    #mobile-menu-btn {
+        display: block; 
+    }
+
+
+    .hero-title {
+        font-size: 3.5rem; 
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .scroll-item {
+        width: 250px; 
+        height: 160px;
+    }
+
+    .marquee-content {
+        font-size: 1.5rem; 
+    }
+    
+    .section-title {
+        font-size: 2.2rem; /* تصغير العناوين عالموبايل */
+    }
+
+    #team .container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* تعديل بطاقات المسابقات للموبايل */
+    .competitions-scroller {
+        padding: 20px 0;
+        margin: 0 -20px;
+    }
+    .competitions-scroller > :first-child { margin-left: 20px; }
+    .competitions-scroller > :last-child { margin-right: 20px; }
+
+    .competition-card {
+        flex: 0 0 280px; /* تصغير عرض البطاقة */
+    }
+    .competition-card h3 {
+        font-size: 1.2rem;
+    }
+    /* (تعديل) إظهار التفاصيل دائماً عالموبايل (لأنه ما في هوفر) */
+    .card-details-preview {
+        font-size: 0.8rem;
+        height: auto;
+        opacity: 1;
+        transform: none;
+    }
+    .competition-card:hover .card-details-preview {
+        height: auto;
+        opacity: 1;
+        transform: none;
+    }
+
+
+    /* (جديد) تعديلات المودال للموبايل */
+    #modal-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+    #modal-image {
+        height: 200px;
+    }
+    .modal-content {
+        padding: 25px;
+    }
+    #modal-title {
+        font-size: 1.8rem;
+    }
+    #modal-details {
+        font-size: 1rem;
+    }
+    
+    /* (جديد) تعديلات قسم "تجدوننا هنا" للموبايل */
+    .find-us-container {
+        grid-template-columns: 1fr; /* عمود واحد */
+        gap: 30px;
+    }
+    .find-us-card {
+        width: 200px; /* تصغير الدوائر */
+        height: 200px;
+    }
+    .find-us-card i {
+        font-size: 3rem;
+    }
+    .find-us-card h3 {
+        font-size: 1.2rem;
+    }
+
+
+    /* (جديد) تعديلات الفوتر للموبايل */
+    .footer-contact a {
+        font-size: 1rem;
+    }
+}
+/* (جديد) تنسيق الفيديوهات الخلفية للأقسام */
+#categories-video,
+#writeups-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* الطبقة 0: الخلفية */
+}
+
+/* (معدّل) التأكد من أن محتوى الأقسام يظهر فوق الفيديو */
+#categories-preview .container-full,
+#write-ups .container-full {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== (جديد) تخصيص شريط التمرير للنافذة المنبثقة ===== */
+    
+/* التنسيقات الرئيسية لشريط التمرير (الخلفية) */
+#modal-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* تنسيق مقبض شريط التمرير (الجزء الذي يتحرك) */
+#modal-container::-webkit-scrollbar-thumb {
+    background-color: #FF4500;
+    border-radius: 6px;
+    border: 3px solid #0c0c0c; 
+}
+
+/* تنسيق خلفية شريط التمرير */
+#modal-container::-webkit-scrollbar-track {
+    background-color: #333;
+    border-radius: 6px;
+}
+
+/* تنسيق مقبض شريط التمرير عند الهوفر (اختياري) */
+#modal-container::-webkit-scrollbar-thumb:hover {
+    background-color: #e03c00;
+}
+
+
+/* =================================================
+   (جديد) 1. شاشة التحميل (Preloader)
+================================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0c0c0c; /* نفس خلفية الموقع */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* (جديد) للتحكم بالاختفاء */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#preloader img {
+    width: 80px; /* حجم اللوجو */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* (جديد) كلاس الاختفاء (يتم إضافته بالجافاسكربت) */
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* (جديد) أنيميشن النبض للوجو */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =================================================
+   (جديد) 2. زر العودة للأعلى (Back to Top)
+================================================= */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #FF4500;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 50px; /* لتوسيط الأيقونة عمودياً */
+    text-decoration: none;
+    z-index: 998;
+    
+    /* (جديد) للتحكم بالإخفاء والإظهار */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* (جديد) كلاس الظهور (يتم إضافته بالجافاسكربت) */
+#back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top-btn:hover {
+    background-color: #e03c00; /* لون أغمق */
+    transform: scale(1.1);
+}
+
+/* =================================================
+   (جديد) 3. قائمة الموبايل (Hamburger Menu)
+================================================= */
+
+/* --- زر الهمبرغر --- */
+#mobile-menu-btn {
+    display: none; /* مخفي على الديسكتوب */
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001; /* فوق كل شيء */
+}
+#mobile-menu-btn:hover {
+    color: #FF4500;
+}
+
+/* --- قائمة روابط الموبايل (الشاشة الكاملة) --- */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 12, 12, 0.95); /* #0c0c0c شبه شفاف */
+    backdrop-filter: blur(10px);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* (جديد) إخفاء القائمة خارج الشاشة */
+    transform: translateX(100%);
+    transition: transform 0.4s ease-out;
+    z-index: 1000;
+}
+
+/* (جديد) كلاس التشغيل (يتم إضافته بالجافاسكربت) */
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-nav li {
+    margin: 20px 0;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.8rem; /* خط كبير وواضح */
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.mobile-nav a:hover {
+    color: #FF4500;
+}
+
+/* (جديد) إلغاء الخط البرتقالي لروابط الموبايل */
+.mobile-nav a::after {
+    display: none;
+}
+
+
+/* =================================================
+   (جديد) 6. مؤشر الماوس المخصص (Custom Cursor)
+================================================= */
+body {
+    cursor: none; /* إخفاء الماوس الافتراضي */
+}
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%); /* للتوسيط على المؤشر */
+    border-radius: 50%;
+    pointer-events: none; /* لضمان عدم تداخلها مع الكليك */
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #FF4500; /* النقطة البرتقالية */
+}
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 69, 0, 0.5); /* إطار برتقالي شفاف */
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* (جديد) حالة التفاعل (عند الهوفر على رابط) */
+.cursor-outline.hover {
+    width: 60px;
+    height: 60px;
+    border-color: #FF4500;
+    background-color: rgba(255, 69, 0, 0.1);
+}
+
+/* (جديد) إخفاء المؤشر المخصص على الموبايل */
+@media (max-width: 768px) {
+    body {
+        cursor: auto; /* إرجاع الماوس الافتراضي */
+    }
+    .cursor-dot, .cursor-outline {
+        display: none; /* إخفاء المؤشر المخصص */
+    }
+}
+/* =================================================
+   (جديد) تخصيص شريط التمرير الخاص بالمتصفح
+================================================= */
+
+/* التنسيقات الرئيسية لشريط التمرير (الخلفية) */
+body::-webkit-scrollbar {
+    width: 12px; /* عرض شريط التمرير */
+}
+
+/* تنسيق مقبض شريط التمرير (الجزء الذي يتحرك) */
+body::-webkit-scrollbar-thumb {
+    background-color: #FF4500; /* لون برتقالي */
+    border-radius: 6px; /* حواف دائرية */
+    border: 3px solid #0c0c0c; /* حدود بنفس لون خلفية الموقع */
+}
+
+/* تنسيق خلفية شريط التمرير (المجرى) */
+body::-webkit-scrollbar-track {
+    background-color: #333; /* لون خلفية المجرى */
+    border-radius: 6px;
+}
+
+/* تنسيق مقبض شريط التمرير عند الهوفر (اختياري) */
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #e03c00; /* لون أغمق عند الهوفر */
+}

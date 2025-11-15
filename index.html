@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4hats Team</title>
+    
+    <link rel="icon" href="media/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div id="preloader">
+        <img src="media/logo.png" alt="Loading...">
+    </div>
+
+    <header id="main-header">
+        <div class="container">
+            <a href="#hero" class="logo-link">
+                <img src="media/logo.png" alt="4hats Team Logo" class="logo">
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#image-scroller">Gallery</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#competitions">Competitions</a></li>
+                    <li><a href="#categories-preview">Categories</a></li>
+                    <li><a href="#write-ups">Write-ups</a></li>
+                    <li><a href="#find-us">Contact</a></li> 
+                </ul>
+            </nav>
+            
+            <button id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+        </div>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav-links">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#image-scroller">Gallery</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#competitions">Competitions</a></li>
+            <li><a href="#categories-preview">Categories</a></li>
+            <li><a href="#write-ups">Write-ups</a></li>
+            <li><a href="#find-us">Contact</a></li> 
+        </ul>
+    </nav>
+
+
+    <section id="hero">
+        <video id="hero-video" autoplay loop muted playsinline>
+            <source src="media/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title typewriter" data-text="4hats"></h1>
+            <p class="hero-description">
+                A leading team specializing in cybersecurity and Capture The Flag (CTF) challenges. We aim to spread awareness and build a strong generation of security experts.
+            </p>
+        </div>
+    </section>
+
+    <section id="image-scroller">
+        <video id="image-scroller-video" autoplay loop muted playsinline>
+            <source src="media/scroller_bg.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <div class="scroller-container">
+            <div class="scroll-item"><img src="media/1-1.jpg" alt="CTF Event 1"></div>
+            <div class="scroll-item"><img src="media/2-2.png" alt="Workshop"></div>
+            <div class="scroll-item"><img src="media/3-3.png" alt="Team 4hats"></div>
+            <div class="scroll-item"><img src="media/4-4.png" alt="CTF Challenge"></div>
+            <div class="scroll-item"><img src="media/5-5.jpg" alt="Winning"></div>
+            <div class="scroll-item"><img src="media/6-6.jpg" alt="Coding"></div>
+            <div class="scroll-item"><img src="media/7-7.jpg" alt="Coding"></div>
+        </div>
+    </section>
+
+    <section id="skills-marquee">
+        <div class="marquee-row scroll-left">
+            <div class="marquee-content" id="marquee-content-1">
+                <span>CYBERSECURITY / CTF COMPETITIONS / CRYPTOGRAPHY / WEB SECURITY /</span>
+                <span>CYBERSECURITY / CTF COMPETITIONS / CRYPTOGRAPHY / WEB SECURITY /</span>
+            </div>
+        </div>
+        <div class="marquee-row scroll-right">
+            <div class="marquee-content" id="marquee-content-2">
+                <span>REVERSE ENGINEERING / DIGITAL FORENSICS / PENETRATION TESTING / OSINT /</span>
+                <span>REVERSE ENGINEERING / DIGITAL FORENSICS / PENETRATION TESTING / OSINT /</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <video id="team-video" autoplay loop muted playsinline>
+            <source src="media/2.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <h2 class="section-title hidden-on-scroll">MEET THE TEAM</h2>
+
+        <div class="container">
+            <div class="team-card hidden-on-scroll">
+                <img src="media/firas.png" alt="Team Member 1" class="team-photo">
+                <h3>Firas Mahmoud</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/firas-mahmoud-62670930b/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/firas.j0" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="team-card hidden-on-scroll">
+                <img src="media/hassan.png" alt="Team Member 2" class="team-photo">
+                <h3>Hassan Alamouri</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/hassan-alamoori-00289128b/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/h7s.n" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="team-card hidden-on-scroll">
+                <img src="media/ahmad.png" alt="Team Member 3" class="team-photo">
+                <h3>Ahmad Alsokhni</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/%D9%90ahmad-alsokhni-227307328/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ahmad.alsokhni.7" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="team-card hidden-on-scroll">
+                <img src="media/ali.png" alt="Team Member 4" class="team-photo">
+                <h3>Ali Abdullah</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ali-abdallah-39b205312/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/1a.2li_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competitions">
+        
+        <video id="competitions-video" autoplay loop muted playsinline>
+            <source src="media/4.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <div class="container-full"> 
+            <h2 class="section-title hidden-on-scroll">COMPETITIONS ATTENDED</h2>
+            
+            <div class="competitions-scroller hidden-on-scroll">
+                
+                <div class="competition-card" 
+                     data-image="media/RLCTF.jpg" 
+                     data-title="RLCTF" 
+                     data-details="A competition held by the University of Science and Technology.
+
+The only team that qualified from Al al-Bayt University.
+Qualifying for the finals from among more than 300 participants.">
+                    <div class="card-image-container">
+                        <img src="media/RLCTF.jpg" alt="RLCTF" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>RLCTF</h3>
+                        <p class="card-details-preview">University of Science and Technology</p>
+                    </div>
+                </div>
+
+                <div class="competition-card"
+                     data-image="media/metactf.png" 
+                     data-title="METACTF25" 
+                     data-details="A competition held by Princess Sumaya University.
+
+The only team that qualified from Al al-Bayt University.
+Qualified for the finals with more than 400 participants.">
+                    <div class="card-image-container">
+                        <img src="media/metactf.png" alt="METACTF25" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>METACTF25</h3>
+                        <p class="card-details-preview">Princess Sumaya University</p>
+                    </div>
+                </div>
+
+                <div class="competition-card"
+                     data-image="media/NCSC JORDAN.jpg" 
+                     data-title="NCSCJO25" 
+                     data-details="A competition organized by the National Cyber Security Center in Jordan.
+
+The only team that qualified from Al al-Bayt University.
+Qualified for the finals with more than 1,200 participants.">
+                    <div class="card-image-container">
+                        <img src="media/NCSC JORDAN.jpg" alt="NCSCJO25" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>NCSCJO25</h3>
+                        <p class="card-details-preview">NCSC - Jordan</p>
+                    </div>
+                </div>
+
+                <div class="competition-card"
+                     data-image="media/ncsc bahrain.jpg" 
+                     data-title="NCSCBAHRAIN25" 
+                     data-details="We took part in the Bahrain National Center Championship and were the only team from Jordan to qualify for the finals in Manama. After competing among hundreds of participants, we earned a spot in the top finalists and received an official invitation to attend the global DefCon conference.">
+                    <div class="card-image-container">
+                        <img src="media/ncsc bahrain.jpg" alt="NCSCBAHRAIN25" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>NCSCBAHRAIN25</h3>
+                        <p class="card-details-preview">NCSC - Bahrain</p>
+                    </div>
+                </div>
+
+                <div class="competition-card"
+                     data-image="media/CYBERETO.jpg" 
+                     data-title="CYBERETO CTF" 
+                     data-details="We qualified for the finals of the CyberEto competition at Philadelphia University, standing out among more than 600 participants and achieving a Top 15 ranking.">
+                    <div class="card-image-container">
+                        <img src="media/CYBERETO.jpg" alt="CYBERETO CTF" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>CYBERETO CTF</h3>
+                        <p class="card-details-preview">Al Hashemite University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories-preview">
+        <video id="categories-video" autoplay loop muted playsinline>
+            <source src="media/CATEGORIES.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <div class="container-full"> 
+            <h2 class="section-title hidden-on-scroll">CATEGORIES</h2>
+            
+            <div class="categories-preview-container hidden-on-scroll">
+                <a href="categories.html" class="cta-button">View All Categoties</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="write-ups">
+        <video id="writeups-video" autoplay loop muted playsinline>
+            <source src="media/5.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <div class="container-full"> 
+            <h2 class="section-title hidden-on-scroll">Write-ups</h2>
+            
+            <div class="writeups-container hidden-on-scroll">
+                <a href="writeups.html" class="cta-button">View All Write-ups</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="find-us">
+        
+        <video id="find-us-video" autoplay loop muted playsinline>
+            <source src="media/app_video.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <h2 class="section-title hidden-on-scroll">Find Us Here</h2>
+        <div class="find-us-container">
+            
+            <div class="find-us-card hidden-on-scroll" data-delay="0">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <a href="https://chat.whatsapp.com/LrkSkmFOsZYKxlEUXDTtm0" target="_blank">Chat With Us</a>
+            </div>
+
+            <div class="find-us-card hidden-on-scroll" data-delay="200">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/4hats-cy-ab7955394/" target="_blank">Follow Our Page</a>
+            </div>
+
+            <div class="find-us-card hidden-on-scroll" data-delay="400">
+                <i class="fa-brands fa-instagram"></i>
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/4hats.cy" target="_blank">See Our Profile</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <a href="#hero" class="footer-logo">
+            <img src="media/logo.png" alt="4hats Team Logo">
+        </a>
+        
+        <div class="footer-contact">
+            <p>Get in touch:</p>
+            <a href="mailto:4hatsaabu@gmail.com">4hatsaabu@gmail.com</a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 4hats Team. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="modal-overlay" class="hidden"></div>
+    <div id="modal-container" class="hidden">
+        <button id="modal-close-btn">&times;</button>
+        <img id="modal-image" src="" alt="Competition Details">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-details"></p>
+        </div>
+    </div>
+
+    <a href="#hero" id="back-to-top-btn" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
